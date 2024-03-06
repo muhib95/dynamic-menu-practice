@@ -1,0 +1,46 @@
+
+
+ {
+    "menuItems": [
+      {
+        "label": "Home",
+        "link": "/home"
+      },
+      {
+        "label": "About Us",
+        "link": "/about"
+      },
+      {
+        "label": "Services",
+        "link": "/services",
+        "subMenu": [
+          {
+            "label": "Web Development",
+            "link": "/services/web"
+          },
+          {
+            "label": "Mobile App Development",
+            "link": "/services/mobile"
+          },
+          {
+            "label": "UI/UX Design",
+            "link": "/services/design",
+            "subMenu": [
+              {
+                "label": "Wireframing",
+                "link": "/services/design/wireframing"
+              },
+              {
+                "label": "Prototyping",
+                "link": "/services/design/prototyping"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Contact",
+        "link": "/contact"
+      }
+    ]
+  }
