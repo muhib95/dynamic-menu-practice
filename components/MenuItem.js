@@ -17,7 +17,7 @@ const MenuItem = ({ item }) => {
       </a>
       {item.subMenu && openClose && (
         <div
-          className="absolute top-0 left-52 w-40 h-52  border border-black"
+          className="absolute top-0 left-52 w-40 h-auto  border border-black"
           onMouseEnter={() => setOpenClose(true)} // Keep submenu open on submenu enter
           //onMouseLeave={() => setOpenClose(false)}
         >

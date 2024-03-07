@@ -1,0 +1,44 @@
+{
+    "categories": [
+      {
+        "id": 1,
+        "name": "Development",
+        "subcategories": [
+          {
+            "id": 101,
+            "name": "Web Development",
+            "subcategories": [
+              {"id": 10101, "name": "Frontend Development"},
+              {"id": 10102, "name": "Backend Development"}
+            ]
+          },
+          {"id": 102, "name": "Mobile App Development"}
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Business",
+        "subcategories": [
+          {"id": 201, "name": "Entrepreneurship"},
+          {"id": 202, "name": "Marketing"}
+        ]
+      },
+      {
+        "id": 3,
+        "name": "IT & Software",
+        "subcategories": [
+          {"id": 301, "name": "Network Security"},
+          {
+            "id": 302,
+            "name": "Database Management",
+            "subcategories": [
+              {"id": 30201, "name": "Relational Databases"},
+              {"id": 30202, "name": "NoSQL Databases"}
+            ]
+          }
+        ]
+      }
+      
+    ]
+  }
+  
