@@ -1,3 +1,4 @@
+import MySub from "@/components/MySub";
 import SubMenus from "@/components/SubMenus";
 import React, { useRef, useState } from "react";
 
@@ -7,30 +8,30 @@ const index = () => {
       tit: "TechMaalashi",
       id: 1,
       link: "/home",
-      submenu: [
-        {
-          tit: "Nextjs",
-          id: 2,
-          link: "nj",
-        },
-        {
-          tit: "JS",
-          id: 3,
-          link: "js",
-          submenu: [
-            {
-              tit: "subSub",
-              id: 4,
-              link: "subsub",
-            }
-          ],
-        },
-        {
-          tit: "PG",
-          id: 5,
-          link: "pg",
-        },
-      ],
+      // submenu: [
+      //   {
+      //     tit: "Nextjs",
+      //     id: 2,
+      //     link: "nj",
+      //   },
+      //   {
+      //     tit: "JS",
+      //     id: 3,
+      //     link: "js",
+      //     submenu: [
+      //       {
+      //         tit: "subSub",
+      //         id: 4,
+      //         link: "subsub",
+      //       }
+      //     ],
+      //   },
+      //   {
+      //     tit: "PG",
+      //     id: 5,
+      //     link: "pg",
+      //   },
+      // ],
     },
     {
       tit: "Muhib",
@@ -38,9 +39,16 @@ const index = () => {
       link: "/home",
       submenu: [
         {
-          tit: "Nextjs",
+          tit: "mjs",
           id: 7,
           link: "#",
+          submenu: [
+            {
+              tit: "subSubMuhib",
+              id: 20,
+              link: "subSubMuhib",
+            }
+          ],
         },
         {
           tit: "JS",
@@ -64,6 +72,7 @@ const index = () => {
  
   return <div>
   <SubMenus menu={menu} ></SubMenus>
+  <MySub menu={menu}></MySub>
   </div>;
 };
 

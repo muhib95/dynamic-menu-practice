@@ -27,12 +27,14 @@ const SubMenus = ({ menu }) => {
 
 const CreateMenu = ({ item, depth, myRef, setMenuStatus, menuStatus }) => {
   const handleMouseEnter = (item, depth) => {
-   
+  
     if (item?.submenu) {
-    
+      
+      
       console.log(item,depth);
     }
     else{
+       
         console.log("e",item,depth); 
     }
   };
@@ -46,7 +48,7 @@ const CreateMenu = ({ item, depth, myRef, setMenuStatus, menuStatus }) => {
       >
         <Link href={item?.link}>{item?.tit}</Link>
         <ul
-          className={` ${
+          className={`hidden  ${
             depth === 0 ? "top-10 left-0" : "left-0 top-0 ml-[calc(100%)]"
           } absolute`}
         >
