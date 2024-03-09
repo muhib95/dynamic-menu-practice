@@ -8,30 +8,37 @@ const index = () => {
       tit: "TechMaalashi",
       id: 1,
       link: "/home",
-      // submenu: [
-      //   {
-      //     tit: "Nextjs",
-      //     id: 2,
-      //     link: "nj",
-      //   },
-      //   {
-      //     tit: "JS",
-      //     id: 3,
-      //     link: "js",
-      //     submenu: [
-      //       {
-      //         tit: "subSub",
-      //         id: 4,
-      //         link: "subsub",
-      //       }
-      //     ],
-      //   },
-      //   {
-      //     tit: "PG",
-      //     id: 5,
-      //     link: "pg",
-      //   },
-      // ],
+      submenu: [
+        {
+          tit: "Nextjs",
+          id: 2,
+          link: "nj",
+        },
+        {
+          tit: "JS",
+          id: 3,
+          link: "js",
+          submenu: [
+            {
+              tit: "subSub",
+              id: 4,
+              link: "subsub",
+              submenu: [
+                {
+                  tit: "subSub",
+                  id: 4,
+                  link: "subsub",
+                }
+              ],
+            }
+          ],
+        },
+        {
+          tit: "PG",
+          id: 5,
+          link: "pg",
+        },
+      ],
     },
     {
       tit: "Muhib",

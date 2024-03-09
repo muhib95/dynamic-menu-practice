@@ -6,11 +6,10 @@ import { useState } from "react";
 const MySub = ({ menu }) => {
   const [myObject, setMyObject] = useState([]);
   const [stage, setStage] = useState(0);
-  const [hasSub, setHasSub] = useState(false);
 
   return (
-    <div className="border border-red-600 w-60 h-auto">
-      <ul>
+    <div className=" w-60 h-auto">
+      <ul className="flex flex-col">
         {menu?.map((item, i) => (
           <Sub
             key={i}
@@ -19,8 +18,6 @@ const MySub = ({ menu }) => {
             myObject={myObject}
             setStage={setStage}
             stage={stage}
-            setHasSub={setHasSub}
-            hasSub={hasSub}
           />
         ))}
       </ul>
@@ -30,54 +27,36 @@ const MySub = ({ menu }) => {
 
 const Sub = ({
   menu,
-  hasSub,
-  setHasSub,
-  depth = 0,
-  
+  setStage,
+  stage,
   myObject,
   setMyObject,
-  stage,
-  setStage,
 }) => {
-console.log(stage);
-  const mouseEnter = (item, d) => {
-    setStage(d);
-    if (item.submenu && item.submenu.length > 0&&depth === d) {
-      setHasSub(true);
-    }
-    if(d==stage){
-      setHasSub(true);
-    }
-   
-    console.log("mouseEnter", item, d);
+  const mouseEnter = (item) => {
+    setStage(item.id);
+    setMyObject((prev) => [...prev, item.id]);
   };
 
-  const mouseLeave = (item, d) => {
-    setStage(d-1)
-    // Check if moving to a submenu within the same hierarchy
-    if (depth === d ) {
-      setHasSub(false);
-    }
-    console.log("mouseLeave", item, d);
+  const mouseLeave = (item) => {
+    setStage(0);
+    setMyObject((prev) => prev.filter((id) => id !== item.id));
   };
 
   if (menu.submenu) {
     return (
       <li
-        onMouseEnter={() => mouseEnter(menu, depth)}
-        onMouseLeave={() => mouseLeave(menu, depth)}
-        className="relative border border-black cursor-pointer"
+        onMouseEnter={() => mouseEnter(menu)}
+        onMouseLeave={() => mouseLeave(menu)}
+        className="relative  cursor-pointer bg-blue-700 text-white border-t border-black"
       >
-        <Link className="block" href={menu?.link}>
+        <Link className="block px-2 py-3" href={menu?.link}>
           {menu?.tit}
         </Link>
-        {hasSub && stage>=depth &&(
-          <div
-            className={`absolute left-[298px] top-0 border-2 border-blue-700 w-60 h-auto`}
-          >
+        {myObject.includes(menu.id) && (
+          <div className="absolute top-[-1px] left-full  w-60 h-auto">
             <ul>
               {menu?.submenu.map((sub, i) => (
-                <Sub key={i} menu={sub} depth={depth + 1} hasSub={hasSub} setHasSub={setHasSub} stage={stage} setStage={setStage}/>
+                <Sub key={i} menu={sub} setStage={setStage} stage={stage} myObject={myObject} setMyObject={setMyObject} />
               ))}
             </ul>
           </div>
@@ -87,11 +66,11 @@ console.log(stage);
   } else {
     return (
       <li
-        onMouseEnter={() => mouseEnter(menu, depth)}
-        onMouseLeave={() => mouseLeave(menu, depth)}
-        className="border border-black cursor-pointer"
+        onMouseEnter={() => mouseEnter(menu)}
+        onMouseLeave={() => mouseLeave(menu)}
+        className="bg-blue-700 text-white border-t border-black cursor-pointer"
       >
-        <Link className="border border-green-500 block" href={menu?.link}>
+        <Link className=" block px-2 py-3" href={menu?.link}>
           {menu?.tit}
         </Link>
       </li>
