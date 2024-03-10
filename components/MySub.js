@@ -1,14 +1,14 @@
 // ... (imports and other code)
-
+import Image from 'next/image'
 import Link from "next/link";
 import { useState } from "react";
-
+import menuNav from "../public/asset/Polygon.png";
 const MySub = ({ menu }) => {
   const [myObject, setMyObject] = useState([]);
   const [stage, setStage] = useState(0);
 
   return (
-    <div className=" w-60 h-auto">
+    <div className="border border-black w-60 h-auto">
       <ul className="flex flex-col">
         {menu?.map((item, i) => (
           <Sub
@@ -47,11 +47,20 @@ const Sub = ({
       <li
         onMouseEnter={() => mouseEnter(menu)}
         onMouseLeave={() => mouseLeave(menu)}
-        className="relative  cursor-pointer bg-blue-700 text-white border-t border-black"
+        className="relative  cursor-pointer bg-[#083344] text-white border border-black hover:bg-white hover:text-black"
       >
-        <Link className="block px-2 py-3" href={menu?.link}>
+        <div className='flex justify-between items-center'>
+          <button className="block px-2 py-3" >
           {menu?.tit}
-        </Link>
+        </button>
+        <Image
+                                className="w-[22px] h-[19px] pr-[12px] 2xl:pr-[14px]"
+                                priority
+                                src={menuNav}
+                                alt="Follow us on Twitter"
+                              />
+        </div>
+        
         {myObject.includes(menu.id) && (
           <div className="absolute top-[-1px] left-full  w-60 h-auto">
             <ul>
@@ -68,7 +77,7 @@ const Sub = ({
       <li
         onMouseEnter={() => mouseEnter(menu)}
         onMouseLeave={() => mouseLeave(menu)}
-        className="bg-blue-700 text-white border-t border-black cursor-pointer"
+        className="bg-[#083344] text-white border border-black cursor-pointer  hover:bg-white hover:text-black"
       >
         <Link className=" block px-2 py-3" href={menu?.link}>
           {menu?.tit}

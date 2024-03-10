@@ -76,10 +76,23 @@ const index = () => {
      
     },
   ];
+  const [open,setOpen]=useState(false);
+  const menuOpener=()=>{
+    setOpen(!open);
+  }
  
   return <div>
   <SubMenus menu={menu} ></SubMenus>
-  <MySub menu={menu}></MySub>
+  <div>
+    <div className="py-3">
+      <button className="bg-blue-600 text-white px-2 py-1" onClick={()=>menuOpener()}>Menu</button>
+    </div>
+    {
+      open&&<MySub menu={menu}></MySub>
+    }
+     
+  </div>
+ 
   </div>;
 };
 
