@@ -8,7 +8,7 @@ const MySub = ({ menu }) => {
   const [stage, setStage] = useState(0);
 
   return (
-    <div className="border border-black w-60 h-auto">
+    <div className="w-60 h-auto">
       <ul className="flex flex-col">
         {menu?.map((item, i) => (
           <Sub
@@ -47,7 +47,7 @@ const Sub = ({
       <li
         onMouseEnter={() => mouseEnter(menu)}
         onMouseLeave={() => mouseLeave(menu)}
-        className="relative  cursor-pointer bg-[#083344] text-white border border-black hover:bg-white hover:text-black"
+        className="relative  cursor-pointer bg-[#083344] text-white  hover:bg-white hover:text-black hover:text-black hover:border hover:border-black"
       >
         <div className='flex justify-between items-center'>
           <button className="block px-2 py-3" >
@@ -77,7 +77,7 @@ const Sub = ({
       <li
         onMouseEnter={() => mouseEnter(menu)}
         onMouseLeave={() => mouseLeave(menu)}
-        className="bg-[#083344] text-white border border-black cursor-pointer  hover:bg-white hover:text-black"
+        className="bg-[#083344] text-white  cursor-pointer  hover:bg-white hover:text-black hover:border hover:border-black"
       >
         <Link className=" block px-2 py-3" href={menu?.link}>
           {menu?.tit}
